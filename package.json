@@ -1,7 +1,7 @@
 {
-  "name": "empty-project",
+  "name": "oddaj-rzeczy",
   "version": "1.0.0",
-  "description": "",
+  "description": "oddaj-rzeczy",
   "main": "index.js",
   "scripts": {
     "dev": "webpack --mode development",
@@ -41,6 +41,7 @@
     "prop-types": "^15.7.2",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
+    "react-form-hook": "0.0.1",
     "react-router-dom": "^5.1.2"
   },
   "browserslist": [
