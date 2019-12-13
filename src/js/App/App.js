@@ -1,13 +1,17 @@
 import React from 'react';
 import style from "./app.modules.scss";
-import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
+import {HashRouter as Router, Switch, Route} from "react-router-dom";
 import Home from "../Components/Home/home";
+import Login from "../Components/Login/login";
+import Register from "../Components/Register/register";
 
 function App () {
     return (
         <Router>
             <Switch>
-                <Route path="/" component={Home}/>
+                <Route path="/" exact component={Home}/>
+                <Route path="/logowanie" component={Login}/>
+                <Route path="/rejestracja" component={Register}/>
             </Switch>
         </Router>
     )
