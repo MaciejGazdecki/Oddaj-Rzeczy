@@ -12,7 +12,7 @@ function SmallNavigation() {
             </li>
             <li>
                 <Link to="/rejestracja">
-                    Rejestracja
+                    Załóż konto
                 </Link>
             </li>
         </ul>

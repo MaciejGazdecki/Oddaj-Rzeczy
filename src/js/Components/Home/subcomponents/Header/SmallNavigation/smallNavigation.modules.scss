@@ -3,6 +3,7 @@
   padding-top: 46px;
   left: 1600px;
   text-decoration: none;
+  height: 18px;
   li {
     display: inline-block;
     font-size: 14px;
@@ -12,6 +13,8 @@
     }
     &:nth-child(2){
       margin-left: 40px;
+      border: 1px solid yellow;
+      padding: 4px;
     }
   }
 }

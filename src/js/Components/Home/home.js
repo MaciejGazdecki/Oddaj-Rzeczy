@@ -1,11 +1,11 @@
 import React from 'react';
 import style from './home.modules.scss';
-import SmallNavigation from "./subcomponents/Header/SmallNavigation/smallNavigation";
+import Header from "./subcomponents/Header/header";
 
 function Home() {
     return (
         <>
-            <SmallNavigation/>
+            <Header/>
         </>
     )
 }
