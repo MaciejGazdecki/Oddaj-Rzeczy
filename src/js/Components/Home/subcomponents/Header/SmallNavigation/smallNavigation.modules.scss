@@ -1,0 +1,17 @@
+.loginNav {
+  text-align: right;
+  padding-top: 46px;
+  left: 1600px;
+  text-decoration: none;
+  li {
+    display: inline-block;
+    font-size: 14px;
+    a {
+      text-decoration: none;
+      color: #737373;
+    }
+    &:nth-child(2){
+      margin-left: 40px;
+    }
+  }
+}
