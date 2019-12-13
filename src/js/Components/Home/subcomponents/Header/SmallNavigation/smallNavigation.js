@@ -1,9 +1,10 @@
 import React from "react";
 import {Link} from "react-router-dom";
+import style from "./smallNavigation.modules.scss"
 
 function SmallNavigation() {
     return (
-        <ul>
+        <ul className={style.loginNav}>
             <li>
                 <Link to="/logowanie">
                     Zaloguj
@@ -11,7 +12,7 @@ function SmallNavigation() {
             </li>
             <li>
                 <Link to="/rejestracja">
-                    Rejestracja
+                    Załóż konto
                 </Link>
             </li>
         </ul>
