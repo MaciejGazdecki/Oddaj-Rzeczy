@@ -8,11 +8,14 @@ import Register from "../Components/Register/register";
 function App () {
     return (
         <Router>
-            <Switch>
-                <Route path="/" exact component={Home}/>
-                <Route path="/logowanie" component={Login}/>
-                <Route path="/rejestracja" component={Register}/>
-            </Switch>
+            <div className={style.container}>
+                <Switch>
+
+                        <Route path="/" exact component={Home}/>
+                        <Route path="/logowanie" component={Login}/>
+                        <Route path="/rejestracja" component={Register}/>
+                </Switch>
+            </div>
         </Router>
     )
 }

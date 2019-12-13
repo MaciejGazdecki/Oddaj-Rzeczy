@@ -1,0 +1,16 @@
+.bigNav {
+  text-align: right;
+  margin-top: 50px;
+  left: 1453px;
+  height: 24px;
+  li {
+    display: inline-block;
+    font-size: 18px;
+    color: #3C3C3C;
+    margin-left: 60px;
+    &:nth-child(1) {
+      border: 1px solid black;
+      padding: 10px;
+    }
+  }
+}
