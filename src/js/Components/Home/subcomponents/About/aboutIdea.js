@@ -1,5 +1,5 @@
 import React from "react";
-import style from "./about.modules.scss";
+import style from "./aboutIdea.modules.scss";
 import Decoration from "../../../../../images/Decoration.png"
 import {Link} from "react-router-dom";
 import TShirt from "../../../../../images/Icon-1.png";
@@ -8,9 +8,9 @@ import Glass from "../../../../../images/Icon-3.png";
 import Spinner from "../../../../../images/Icon-4.png";
 import {Element} from "react-scroll"
 
-function About() {
+function AboutIdea() {
     return (
-        <Element name="about" className="element">
+        <Element name="aboutIdea" className="element">
         <section className={style.aboutContainer}>
             <div className={style.wrapper}>
                 <div>
@@ -55,4 +55,4 @@ function About() {
     )
 }
 
-export default About;
+export default AboutIdea;
