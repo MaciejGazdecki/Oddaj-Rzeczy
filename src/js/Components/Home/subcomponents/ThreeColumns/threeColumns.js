@@ -3,7 +3,7 @@ import style from './threeColumns.modules.scss'
 
 function ThreeColumns() {
     return (
-        <div className={style.yellowWrapper}>
+        <section className={style.yellowWrapper}>
             <div className={style.wrapper}>
                 <div className={style.message}>
                     <p>10</p>
@@ -27,7 +27,7 @@ function ThreeColumns() {
                     </p>
                 </div>
             </div>
-        </div>
+        </section>
     )
 }
 
