@@ -13,6 +13,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-shrink: 0;
     .contentWrapper {
       width: 70%;
       height: 60%;
@@ -37,9 +38,10 @@
   }
   .style.imageWrapper {
     width: 50%;
+    height: 935px;
   }
   .image {
     width: 100%;
-    height: 100%;
+    height: 935px;
   }
 }
