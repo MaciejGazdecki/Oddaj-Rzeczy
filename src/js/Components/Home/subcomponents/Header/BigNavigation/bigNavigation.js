@@ -1,7 +1,6 @@
 import React from "react";
 import style from "./bigNavigation.modules.scss";
 import {Link} from "react-scroll";
-import AboutUS from "../../AboutUs/aboutUS";
 
 function BigNavigation() {
     return (
