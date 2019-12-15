@@ -1,0 +1,45 @@
+.aboutUS {
+  top: 2107px;
+  left: 0;
+  width: 100%;
+  height: 935px;
+  position: absolute;
+  display: flex;
+  color: #3C3C3C;
+  .content {
+    background-color: #F0F1F1;
+    width: 50%;
+    height: 935px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .contentWrapper {
+      width: 70%;
+      height: 60%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      div {
+        &:first-child {
+          font-size: 38px;
+        }
+        &:nth-child(3) {
+          font-size: 30px;
+          text-align: center;
+        }
+        &:nth-child(4){
+          text-align: right;
+          width: 100%;
+        }
+      }
+    }
+  }
+  .style.imageWrapper {
+    width: 50%;
+  }
+  .image {
+    width: 100%;
+    height: 100%;
+  }
+}
