@@ -8,16 +8,40 @@
     flex-direction: column;
     justify-content: center;
     align-items:center;
+    color: #3C3C3C;
     .wrapper {
         height: 100%;
         width: 100%;
-        .decoration {
-
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        div {
+            &:nth-child(1) {
+                font-size: 36px;
+            }
         }
         .contentWrapper {
             width: 100%;
             background-color: #F0F1F1;
             height: 325px;
+        }
+        .button {
+            font-size: 36px;
+            border: 0.75px solid #3C3C3C;
+            width: 310px;
+            height: 120px;
+
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            a {
+                padding: 13px 93px;
+                text-decoration: none;
+                color: #3C3C3C;
+            }
         }
     }
 }
