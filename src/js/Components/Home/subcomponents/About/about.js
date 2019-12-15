@@ -2,6 +2,10 @@ import React from "react";
 import style from "./about.modules.scss";
 import Decoration from "../../../../../images/Decoration.png"
 import {Link} from "react-router-dom";
+import TShirt from "../../../../../images/Icon-1.png";
+import Pack from "../../../../../images/Icon-2.png";
+import Glass from "../../../../../images/Icon-3.png";
+import Spinner from "../../../../../images/Icon-4.png";
 
 function About() {
     return (
@@ -13,12 +17,28 @@ function About() {
                 <div>
                     <img src={Decoration} className={style.decoration} alt="grafika"/>
                 </div>
-                <div className={style.contentWrapper}>
-                    <div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
+                <div className={style.contentContainer}>
+                    <div className={style.contentWrapper}>
+                        <div>
+                            <img src={TShirt} alt="t-shirt"/>
+                            <p>Wybierz rzeczy</p>
+                            <p>ubrania, zabawki, sprzęt i inne</p>
+                        </div>
+                        <div>
+                            <img src={Pack} alt="paczka"/>
+                            <p>Spakuj je</p>
+                            <p>skorzystaj z worków na śmieci</p>
+                        </div>
+                        <div>
+                            <img src={Glass} alt="szkło powiększające"/>
+                            <p>Zdecyduj komu chcesz pomóc</p>
+                            <p>wybierz zaufane miejsce</p>
+                        </div>
+                        <div>
+                            <img src={Spinner} alt="spinner"/>
+                            <p>Zamów kuriera</p>
+                            <p>kurier przyjedzie w dogodnym terminie</p>
+                        </div>
                     </div>
                 </div>
                 <div className={style.button}>
