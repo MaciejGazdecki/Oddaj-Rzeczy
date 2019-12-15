@@ -11,7 +11,8 @@ function BigNavigation() {
                 </Link>
             </li>
             <li>
-                <Link>
+                <Link to="about"
+                      offset={1280}>
                     O co chodzi?
                 </Link>
             </li>
