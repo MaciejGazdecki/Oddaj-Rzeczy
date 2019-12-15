@@ -6,9 +6,11 @@ import TShirt from "../../../../../images/Icon-1.png";
 import Pack from "../../../../../images/Icon-2.png";
 import Glass from "../../../../../images/Icon-3.png";
 import Spinner from "../../../../../images/Icon-4.png";
+import {Element} from "react-scroll"
 
 function About() {
     return (
+        <Element name="about" className="element">
         <section className={style.aboutContainer}>
             <div className={style.wrapper}>
                 <div>
@@ -49,6 +51,7 @@ function About() {
                 </div>
             </div>
         </section>
+        </Element>
     )
 }
 
