@@ -4,6 +4,7 @@ import Header from "./subcomponents/Header/header";
 import ThreeColumns from "./subcomponents/ThreeColumns/threeColumns";
 import AboutIdea from "./subcomponents/AboutIdea/aboutIdea";
 import AboutUS from "./subcomponents/AboutUs/aboutUS";
+import Foundation from "./Foundation/foundation";
 
 function Home() {
     return (
@@ -12,6 +13,7 @@ function Home() {
             <ThreeColumns/>
             <AboutIdea/>
             <AboutUS/>
+            <Foundation/>
         </>
     )
 }
