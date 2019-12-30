@@ -16,11 +16,11 @@ function Foundation() {
     return (
         <section className={style.foundation}>
             <div className={style.container}>
-                <div>
-                    <div>
+                <div className={style.wrapper}>
+                    <div className={style.header}>
                         <p>Komu pomagamy?</p>
                     </div>
-                    <div>
+                    <div className={style.decoration}>
                         <img src={Decoration} alt="dekoracja"/>
                     </div>
                     <div className={style.buttons}>
@@ -40,7 +40,7 @@ function Foundation() {
                             </p>
                         </div>
                     </div>
-                    <div>
+                    <div className={style.description}>
                         <p>W naszej bazie znajdziesz listę zweryfikowanych Fundacji, z którymi współpracujemy.
                             Możesz sprawdzić czym się zajmują, komu pomagają i czego potrzebują.
                         </p>
@@ -48,14 +48,17 @@ function Foundation() {
                 </div>
                 <ul className={style.items}>
                     {data[index].slice(page*perPage-perPage,page*perPage).map((el,index) =>
-                        <li key={index}>
-                            <p>{el.name}</p>
-                            <p>{el.mission}</p>
+                        <li key={index} className={style.item}>
+                            <div className={style.itemWrapper}>
+                                <p>{el.name}</p>
+                                <p>{el.mission}</p>
+                            </div>
                             <p>{el.items}</p>
                         </li>
                     )}
                 </ul>
-                <ul className={style.pages} style={data[index].length === 3 ? {display:"none"} : {display:"flex"}}>
+                <ul className={style.pages}
+                    style={data[index].length === perPage ? {display:"none"} : {display:"flex"}}>
                     {pages}
                 </ul>
             </div>
