@@ -23,7 +23,8 @@ function BigNavigation() {
                 </Link>
             </li>
             <li>
-                <Link>
+                <Link to="foundation"
+                      offset={3000}>
                     Fundacja i organizacje
                 </Link>
             </li>
