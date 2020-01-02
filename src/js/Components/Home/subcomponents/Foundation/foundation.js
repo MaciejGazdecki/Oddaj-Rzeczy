@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import style from "./foundation.modules.scss";
-import Decoration from "../../../../images/Decoration.png";
+import Decoration from "../../../../../images/Decoration.png";
 import {data} from "./Data/data";
 import {Element} from "react-scroll"
 
