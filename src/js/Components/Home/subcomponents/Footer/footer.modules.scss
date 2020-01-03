@@ -78,3 +78,13 @@
     }
   }
 }
+.icons {
+  position: absolute;
+  top: 960px;
+  right: 300px;
+  img {
+    + img {
+      margin-left: 10px;
+    }
+  }
+}

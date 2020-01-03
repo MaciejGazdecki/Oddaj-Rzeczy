@@ -3,6 +3,8 @@ import style from "./footer.modules.scss";
 import {Element} from "react-scroll";
 import Decoration from "../../../../../images/Decoration.png";
 import Background from "../../../../../images/Background-Contact-Form.jpg";
+import Facebook from "../../../../../images/Facebook.png";
+import Instagram from "../../../../../images/Instagram.png"
 
 function Footer() {
     return (
@@ -52,6 +54,10 @@ function Footer() {
                                 </div>
                             </form>
                         </div>
+                    </div>
+                    <div className={style.icons}>
+                        <img src={Facebook} alt=""/>
+                        <img src={Instagram} alt=""/>
                     </div>
                 </div>
             </section>
