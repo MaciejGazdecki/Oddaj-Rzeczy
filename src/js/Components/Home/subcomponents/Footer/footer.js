@@ -10,20 +10,48 @@ function Footer() {
             <section className={style.footer} style={{backgroundImage:`url(${Background})`}}>
                 <div className={style.background}>
                     <div className={style.wrapper}>
-                        <div>
-                            <p>
-                                Skontaktuj się z nami
-                            </p>
-                        </div>
-                        <img src={Decoration} alt=""/>
-                        <form className={style.form}>
-                            <input type="text"/>
-                            <input type="text"/>
-                            <div className={style.textarea}>
-                                <textarea name="" id="" cols="30" rows="10"></textarea>
-                                <input type="submit"/>
+                        <div className={style.internalWrapper}>
+                            <div>
+                                <p>
+                                    Skontaktuj się z nami
+                                </p>
+                                <img src={Decoration} alt=""/>
                             </div>
-                        </form>
+                            <form className={style.form}>
+                                <div className={style.inputs}>
+                                    <label>
+                                        <p>Wpisz swoje imię</p>
+                                        <input
+                                            type="text"
+                                            placeholder="Podaj imię"
+                                        />
+                                    </label>
+                                    <label>
+                                        <p>Wpisz swój email</p>
+                                        <input
+                                            type="text"
+                                            placeholder="podaj email"
+                                        />
+                                    </label>
+                                </div>
+                                <div className={style.textarea}>
+                                    <p>Wpisz swoją wiadomość</p>
+                                    <textarea
+                                        name=""
+                                        id=""
+                                        cols="30"
+                                        rows="10"
+                                        placeholder="wpisz swoją wiadomość">
+                                    </textarea>
+                                </div>
+                                <div className={style.submit}>
+                                    <input
+                                        type="submit"
+                                        value="Wyślij"
+                                    />
+                                </div>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </section>
