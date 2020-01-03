@@ -10,12 +10,18 @@ import axios from "axios";
 
 function Footer() {
     const {register, handleSubmit, errors} = useForm();
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [message, setMessage] =useState('');
 
     const onSubmit = async (data) => {
         event.preventDefault();
         await axios.post("https://fer-api.coderslab.pl/v1/portfolio/contact", {...data})
             .then(res => {console.log(res); alert("wysłano wiadomość")})
             .catch(err => console.log(err));
+        setName('');
+        setEmail('');
+        setMessage('')
     };
 
 
@@ -39,6 +45,8 @@ function Footer() {
                                             type="text"
                                             placeholder="Podaj imię"
                                             name="name"
+                                            value={name}
+                                            onChange={e => setName(e.target.value)}
                                             ref={register({required:true, pattern: /^\S+$/ })}
                                         />
                                         {errors.name && errors.name.type === 'required' && (
@@ -54,6 +62,8 @@ function Footer() {
                                             type="text"
                                             placeholder="podaj email"
                                             name="email"
+                                            value={email}
+                                            onChange={e => setEmail(e.target.value)}
                                             ref={register({required:true, pattern: /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/})}
                                         />
                                         {errors.email && errors.email.type === 'required' && (
@@ -72,6 +82,8 @@ function Footer() {
                                         rows="10"
                                         placeholder="Tutaj wpisz swoją wiadomość"
                                         name="message"
+                                        value={message}
+                                        onChange={e => setMessage(e.target.value)}
                                         ref={register({required:true, minLength: 120})}
                                     >
                                     </textarea>
