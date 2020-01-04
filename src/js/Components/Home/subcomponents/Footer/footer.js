@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useReducer} from "react";
 import style from "./footer.modules.scss";
 import {Element} from "react-scroll";
 import Decoration from "../../../../../images/Decoration.png";
@@ -10,18 +10,36 @@ import axios from "axios";
 
 function Footer() {
     const {register, handleSubmit, errors} = useForm();
-    const [name, setName] = useState('');
-    const [email, setEmail] = useState('');
-    const [message, setMessage] =useState('');
 
-    const onSubmit = async (data) => {
+    const initialState = {
+      name:'',
+      email:'',
+      message:''
+    };
+
+    const reducer = (state, action) => {
+        if (action.type === "CLEAR") {
+            return initialState
+        }
+        if (action.type === "SET_VALUE") {
+            return {
+                ...state,
+                [action.name]: action.value
+            }
+        }
+    };
+
+    const [state, dispatch] = useReducer(reducer,initialState);
+
+    const onSubmit = async () => {
         event.preventDefault();
-        await axios.post("https://fer-api.coderslab.pl/v1/portfolio/contact", {...data})
+        await axios.post("https://fer-api.coderslab.pl/v1/portfolio/contact", state)
             .then(res => {console.log(res); alert("wysłano wiadomość")})
             .catch(err => console.log(err));
-        setName('');
-        setEmail('');
-        setMessage('')
+        dispatch({type:"CLEAR"})
+    };
+    const onChangeHandler = (e) => {
+        dispatch({type:"SET_VALUE", name: e.target.name, value: e.target.value});
     };
 
 
@@ -45,8 +63,8 @@ function Footer() {
                                             type="text"
                                             placeholder="Podaj imię"
                                             name="name"
-                                            value={name}
-                                            onChange={e => setName(e.target.value)}
+                                            value={state.name}
+                                            onChange={onChangeHandler}
                                             ref={register({required:true, pattern: /^\S+$/ })}
                                         />
                                         {errors.name && errors.name.type === 'required' && (
@@ -62,8 +80,8 @@ function Footer() {
                                             type="text"
                                             placeholder="podaj email"
                                             name="email"
-                                            value={email}
-                                            onChange={e => setEmail(e.target.value)}
+                                            value={state.email}
+                                            onChange={onChangeHandler}
                                             ref={register({required:true, pattern: /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/})}
                                         />
                                         {errors.email && errors.email.type === 'required' && (
@@ -82,8 +100,8 @@ function Footer() {
                                         rows="10"
                                         placeholder="Tutaj wpisz swoją wiadomość"
                                         name="message"
-                                        value={message}
-                                        onChange={e => setMessage(e.target.value)}
+                                        value={state.message}
+                                        onChange={onChangeHandler}
                                         ref={register({required:true, minLength: 120})}
                                     >
                                     </textarea>
