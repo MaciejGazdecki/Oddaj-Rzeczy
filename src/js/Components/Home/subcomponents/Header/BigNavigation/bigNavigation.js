@@ -29,7 +29,7 @@ function BigNavigation() {
                 </Link>
             </li>
             <li>
-                <Link>
+                <Link to="footer" offset={4040}>
                     Kontakt
                 </Link>
             </li>
