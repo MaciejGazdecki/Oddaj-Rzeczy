@@ -44,7 +44,7 @@ function Footer() {
 
 
     return (
-        <Element>
+        <Element name="footer" className="element">
             <section className={style.footer} style={{backgroundImage:`url(${Background})`}}>
                 <div className={style.background}>
                     <div className={style.wrapper}>
