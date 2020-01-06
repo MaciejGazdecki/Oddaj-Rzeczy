@@ -1,14 +1,15 @@
 import React from "react";
 import style from "./bigNavigation.modules.scss";
 import {Link} from "react-scroll";
+import {Link as RouterLink} from "react-router-dom";
 
 function BigNavigation() {
     return (
         <ul className={style.bigNav}>
             <li>
-                <Link>
+                <RouterLink to="/">
                     Start
-                </Link>
+                </RouterLink>
             </li>
             <li>
                 <Link to="aboutIdea"
