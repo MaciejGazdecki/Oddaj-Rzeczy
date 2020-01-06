@@ -1,19 +1,19 @@
 import React from "react";
-import {Link} from "react-router-dom";
+import {NavLink} from "react-router-dom";
 import style from "./smallNavigation.modules.scss"
 
 function SmallNavigation() {
     return (
         <ul className={style.loginNav}>
             <li>
-                <Link to="/logowanie">
+                <NavLink activeClassName={style.active} to="/logowanie">
                     Zaloguj
-                </Link>
+                </NavLink>
             </li>
             <li>
-                <Link to="/rejestracja">
+                <NavLink activeClassName={style.active} to="/rejestracja">
                     Załóż konto
-                </Link>
+                </NavLink>
             </li>
         </ul>
     )
