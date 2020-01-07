@@ -1,0 +1,68 @@
+.loginSection {
+  height: calc(100vh - 95px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .wrapper {
+    text-align: center;
+    .header {
+      font-size: 40px;
+      margin-bottom: 40px;
+      text-align: center;
+      width: 505px;
+    }
+    .decoration {
+      margin-bottom: 40px;
+    }
+    .formWrapper {
+      margin: 0 auto;
+      background-color: #F0F1F1;
+      width: 385px;
+      height: 280px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+      label {
+        height: 82px;
+        p {
+          text-align: left;
+          margin-bottom: 10px;
+        }
+        input {
+          border: none;
+          border-bottom: 1px solid grey;
+          height: 40px;
+        }
+      }
+      .password {
+        margin-top: 20px;
+      }
+    }
+    .buttons {
+      margin-top: 50px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      a {
+        color: black;
+        text-decoration: none;
+      }
+      input {
+        background-color: white;
+        border: 1px solid black;
+        padding: 10px;
+        cursor: pointer;
+      }
+    }
+  }
+}
+.error {
+  color: red;
+  font-size: 12px;
+}
