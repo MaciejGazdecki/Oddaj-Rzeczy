@@ -77,7 +77,7 @@ function Footer() {
                                     <label>
                                         <p>Wpisz swój email</p>
                                         <input
-                                            type="text"
+                                            type="email"
                                             placeholder="podaj email"
                                             name="email"
                                             value={state.email}
@@ -88,7 +88,7 @@ function Footer() {
                                             <p className={style.error}>To pole jest wymagane</p>
                                         )}
                                         {errors.email && errors.email.type === 'pattern' && (
-                                            <p className={style.error}>NIepoprawny format email</p>
+                                            <p className={style.error}>Niepoprawny format email</p>
                                         )}
                                     </label>
                                 </div>
