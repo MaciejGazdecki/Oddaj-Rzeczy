@@ -48,7 +48,7 @@ function Register() {
                                 <p className={style.error}>To pole jest wymagane</p>
                             )}
                             {errors.password && errors.password.type === 'minLength' && (
-                                <p className={style.error}>Minimalna długość wiadomości to 6 znaków</p>
+                                <p className={style.error}>Min. długość to 6 znaków</p>
                             )}
                         </label>
                         <label>
@@ -61,7 +61,7 @@ function Register() {
                                 <p className={style.error}>To pole jest wymagane</p>
                             )}
                             {errors.passwordRepeat && errors.passwordRepeat.type === 'minLength' && (
-                                <p className={style.error}>Minimalna długość to 6 znaków</p>
+                                <p className={style.error}>Min. długość to 6 znaków</p>
                             )}
                             {errors.passwordRepeat && errors.passwordRepeat.type === 'validate' && (
                                 <p className={style.error}>Wpisane hasło musi być takie same</p>
