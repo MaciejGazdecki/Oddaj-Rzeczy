@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import style from "./app.modules.scss";
 import {HashRouter as Router, Route} from "react-router-dom";
 import Home from "../Components/Home/home";
@@ -8,19 +8,36 @@ import Navigation from "../Components/Navigation/navigation";
 import Logout from "../Components/Logout/logout";
 import firebase from "firebase";
 import {config} from "./firebaseConfig";
+import {UserContext} from "./userContext"
 
 firebase.initializeApp(config);
 
 function App () {
+    const [user, setUser] = useState('');
+
+    useEffect(() => {
+        firebase.auth().onAuthStateChanged(function(user) {
+            if (user) {
+                // User is signed in.
+                setUser(user.email);
+            } else {
+                // User is signed out.
+                console.log("Użytkownik wylogowany")
+            }
+        });
+    });
+
     return (
         <Router>
-            <div className={style.container}>
-                <Navigation/>
-                <Route path="/" exact component={Home}/>
-                <Route path="/logowanie" component={Login}/>
-                <Route path="/rejestracja" component={Register}/>
-                <Route path="/wylogowano" component={Logout}/>
-            </div>
+            <UserContext.Provider value={user}>
+                <div className={style.container}>
+                    <Navigation/>
+                    <Route path="/" exact component={Home}/>
+                    <Route path="/logowanie" component={Login}/>
+                    <Route path="/rejestracja" component={Register}/>
+                    <Route path="/wylogowano" component={Logout}/>
+                </div>
+            </UserContext.Provider>
         </Router>
     )
 }

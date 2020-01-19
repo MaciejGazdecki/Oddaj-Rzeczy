@@ -1,6 +1,7 @@
-import React, {useState,useEffect} from "react";
+import React, {useState, useContext} from "react";
 import style from "./login.modules.scss";
 import Decoration from "./../../../images/Decoration.png";
+import {UserContext} from "../../App/userContext";
 import {Link} from "react-router-dom";
 import {useForm} from "react-hook-form";
 import firebase from "firebase";
@@ -8,7 +9,7 @@ import firebase from "firebase";
 function Login() {
     const [email,setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [user, setUser] = useState('');
+    const user = useContext(UserContext);
     const {register, handleSubmit, errors} = useForm();
 
     const onSubmit = () => {
@@ -21,17 +22,6 @@ function Login() {
         });
     };
 
-    useEffect(() => {
-        firebase.auth().onAuthStateChanged(function(user) {
-            if (user) {
-                // User is signed in.
-                 setUser(user.email);
-            } else {
-                // User is signed out.
-                console.log("Użytkownik wylogowany")
-            }
-        });
-    });
     console.log(user);
     return (
         <section className={style.loginSection}>
