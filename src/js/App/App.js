@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import style from "./app.modules.scss";
-import {HashRouter as Router, Route} from "react-router-dom";
+import {HashRouter as Router, Route, Switch} from "react-router-dom";
 import Home from "../Components/Home/home";
 import Login from "../Components/Login/login";
 import Register from "../Components/Register/register";
@@ -20,11 +20,7 @@ function App () {
     useEffect(() => {
         firebase.auth().onAuthStateChanged(user => {
             if (user) {
-                // User is signed in.
                 setUser(user.email);
-            } else {
-                // User is signed out.
-                console.log("Użytkownik wylogowany")
             }
         });
     });
@@ -35,11 +31,13 @@ function App () {
                 <SetUserContext.Provider value={setUser}>
                     <div className={style.container}>
                         <Navigation/>
-                        <Route path="/" exact component={Home}/>
-                        <Route path="/logowanie" component={Login}/>
-                        <Route path="/rejestracja" component={Register}/>
-                        <Route path="/wylogowano" component={Logout}/>
-                        <Route path="/oddaj-rzeczy" component={Donate}/>
+                        <Switch>
+                            <Route path="/" exact component={Home}/>
+                            <Route path="/logowanie" component={Login}/>
+                            <Route path="/rejestracja" component={Register}/>
+                            <Route path="/wylogowano" component={Logout}/>
+                            <Route path="/oddaj-rzeczy" component={Donate}/>
+                        </Switch>
                     </div>
                 </SetUserContext.Provider>
             </UserContext.Provider>

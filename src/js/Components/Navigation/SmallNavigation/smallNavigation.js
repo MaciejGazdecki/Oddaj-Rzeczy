@@ -1,5 +1,5 @@
 import React, {useContext} from "react";
-import {NavLink} from "react-router-dom";
+import {NavLink, useHistory} from "react-router-dom";
 import style from "./smallNavigation.modules.scss"
 import {UserContext} from "../../../App/Context/userContext";
 import {SetUserContext} from '../../../App/Context/setUserContext';
@@ -8,16 +8,18 @@ import firebase from "firebase";
 function SmallNavigation() {
     const user = useContext(UserContext);
     const setUser = useContext(SetUserContext);
+    const history = useHistory();
 
     const logOut = () => {
         firebase.auth().signOut().then(()=> {
             // Sign-out successful.
             alert('User Logged Out!');
-        }).catch(function(error) {
+        }).catch(error => {
             // An error happened.
             alert(error);
         });
         setUser('');
+        history.push('/wylogowano')
     };
 
     return (

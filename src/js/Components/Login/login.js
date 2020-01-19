@@ -1,16 +1,16 @@
-import React, {useState, useContext} from "react";
+import React, {useState} from "react";
 import style from "./login.modules.scss";
-import Decoration from "./../../../images/Decoration.png";
-import {UserContext} from "../../App/Context/userContext";
+import Decoration from "./../../../images/Decoration.png";;
 import {Link} from "react-router-dom";
 import {useForm} from "react-hook-form";
+import {useHistory} from 'react-router-dom';
 import firebase from "firebase";
 
 function Login() {
     const [email,setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const user = useContext(UserContext);
     const {register, handleSubmit, errors} = useForm();
+    const history = useHistory();
 
     const onSubmit = () => {
         firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
@@ -20,9 +20,9 @@ function Login() {
             console.log(errorCode);
             alert(errorMessage)
         });
+        history.push('/')
     };
 
-    console.log(user);
     return (
         <section className={style.loginSection}>
             <div className={style.wrapper}>
