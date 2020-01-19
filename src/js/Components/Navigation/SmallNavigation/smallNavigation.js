@@ -1,15 +1,13 @@
-import React, {useContext,useEffect} from "react";
+import React, {useContext} from "react";
 import {NavLink} from "react-router-dom";
 import style from "./smallNavigation.modules.scss"
 import {UserContext} from "../../../App/userContext";
 import {SetUserContext} from '../../../App/setUserContext';
 import firebase from "firebase";
-import {useForceUpdate} from '../../../../js/CustomHooks/useForceUpdate'
 
 function SmallNavigation() {
     const user = useContext(UserContext);
     const setUser = useContext(SetUserContext);
-    const forceUpdate = useForceUpdate();
 
     const logOut = () => {
         firebase.auth().signOut().then(()=> {
@@ -19,16 +17,9 @@ function SmallNavigation() {
             // An error happened.
             alert(error);
         });
+        setUser('');
     };
 
-    useEffect(() => {
-        firebase.auth().onAuthStateChanged(user => {
-            if (!user) {
-                // User is signed out.
-                setUser('');
-            }
-        });
-    });
     return (
         <ul className={style.loginNav}>
             <li>
@@ -45,7 +36,7 @@ function SmallNavigation() {
                 <NavLink activeClassName={style.active} to="/rejestracja">
                     Załóż konto
                 </NavLink> :
-                <button className={style.logout} onClick={() => {logOut();forceUpdate();}}>
+                <button className={style.logout} onClick={logOut}>
                     Wyloguj się
                 </button>}
             </li>
