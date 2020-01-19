@@ -1,15 +1,28 @@
-import React from "react";
+import React, {useState} from "react";
 import style from "./login.modules.scss";
-import Decoration from "./../../../images/Decoration.png";
+import Decoration from "./../../../images/Decoration.png";;
 import {Link} from "react-router-dom";
-import {useForm} from "react-hook-form"
+import {useForm} from "react-hook-form";
+import {useHistory} from 'react-router-dom';
+import firebase from "firebase";
 
 function Login() {
+    const [email,setEmail] = useState('');
+    const [password, setPassword] = useState('');
     const {register, handleSubmit, errors} = useForm();
+    const history = useHistory();
 
-    const onSubmit = (data) => {
-        alert(`Zalogowano poprawnie ${JSON.stringify(data)}`)
+    const onSubmit = () => {
+        firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
+            // Handle Errors here.
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            console.log(errorCode);
+            alert(errorMessage)
+        });
+        history.push('/')
     };
+
     return (
         <section className={style.loginSection}>
             <div className={style.wrapper}>
@@ -25,6 +38,7 @@ function Login() {
                             <p>Email</p>
                             <input type="text"
                                    name="email"
+                                   onChange={event => setEmail(event.target.value)}
                                    ref={register({required:true, pattern: /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/})}
                             />
                             {errors.email && errors.email.type === 'required' && (
@@ -38,6 +52,7 @@ function Login() {
                             <p className={style.password}>Hasło</p>
                             <input type="password"
                                    name="password"
+                                   onChange={event => setPassword(event.target.value)}
                                    ref={register({required:true, minLength: 6})}
                             />
                             {errors.password && errors.password.type === 'required' && (

@@ -1,18 +1,34 @@
-import React, {useState} from "react";
+import React, {useState, useContext} from "react";
 import style from "./register.modules.scss";
 import Decoration from "./../../../images/Decoration.png";
 import {Link} from "react-router-dom";
-import {useForm} from "react-hook-form"
+import {useForm} from "react-hook-form";
+import firebase from "firebase";
+import {useHistory} from 'react-router-dom';
+
 
 function Register() {
-    const {register, handleSubmit, errors} = useForm();
-
-    const onSubmit = (data) => {
-        alert(`Zarejestrowano poprawnie ${JSON.stringify(data)}`)
-    };
-
     const [password, setPassword] = useState('');
+    const [email,setEmail] = useState('');
+    const {register, handleSubmit, errors} = useForm();
+    const history = useHistory();
 
+    const onSubmit = () => {
+        firebase.auth().createUserWithEmailAndPassword(email, password).catch(error =>{
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            console.log(errorCode);
+            alert(errorMessage);
+        });
+        firebase.auth().signInWithEmailAndPassword(email, password).catch(error => {
+            // Handle Errors here.
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            console.log(errorCode);
+            alert(errorMessage);
+        });
+        history.push('/');
+    };
     return (
         <section className={style.registerSection}>
             <div className={style.wrapper}>
@@ -28,6 +44,7 @@ function Register() {
                             <p>Email</p>
                             <input type="text"
                                    name="email"
+                                   onChange={event => setEmail(event.target.value)}
                                    ref={register({required:true, pattern: /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/})}
                             />
                             {errors.email && errors.email.type === 'required' && (
