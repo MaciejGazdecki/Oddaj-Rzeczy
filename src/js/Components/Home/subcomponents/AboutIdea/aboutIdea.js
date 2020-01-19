@@ -47,15 +47,10 @@ function AboutIdea() {
                         </div>
                     </div>
                     <div className={style.button}>
-                        {!user ?
-                            <Link to="/logowanie">
-                                <p>ODDAJ</p>
-                                <p>RZECZY</p>
-                            </Link> :
-                            <Link to="/oddaj-rzeczy">
-                                <p>ODDAJ</p>
-                                <p>RZECZY</p>
-                            </Link> }
+                        <Link to={!user ? "/logowanie" : "/oddaj-rzeczy"}>
+                            <p>ODDAJ</p>
+                            <p>RZECZY</p>
+                        </Link>
                     </div>
                 </div>
             </section>

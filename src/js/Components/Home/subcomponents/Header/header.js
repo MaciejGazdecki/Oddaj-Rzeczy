@@ -23,26 +23,16 @@ function Header() {
                 </div>
                 <ul className={style.links}>
                     <li>
-                        {!user ?
-                        <Link to="/logowanie">
+                        <Link to={!user ? "/logowanie" : "/oddaj-rzeczy"}>
                             <p>ODDAJ</p>
                             <p>RZECZY</p>
-                        </Link> :
-                        <Link to="/oddaj-rzeczy">
-                            <p>ODDAJ</p>
-                            <p>RZECZY</p>
-                        </Link> }
+                        </Link>
                     </li>
                     <li>
-                        {!user ?
-                        <Link to="/logowanie">
+                        <Link to={!user ? "/logowanie" : "/oddaj-rzeczy"}>
                             <p>ZORGANIZUJ</p>
                             <p>ZBIÓRKĘ</p>
-                        </Link> :
-                        <Link to="/oddaj-rzeczy">
-                            <p>ZORGANIZUJ</p>
-                            <p>ZBIÓRKĘ</p>
-                        </Link> }
+                        </Link>
                     </li>
                 </ul>
             </div>
