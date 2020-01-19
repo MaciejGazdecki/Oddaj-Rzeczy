@@ -36,7 +36,7 @@
   font-size: 40px;
   color: #3C3C3C;
   font-weight: 300;
-  margin-bottom: 40px;
+  margin-bottom: 60px;
 }
 .links {
   display: flex;
@@ -48,13 +48,17 @@
     padding: 25px;
     width: 150px;
     height: 150px;
-    p {
-      &:first-child {
-        font-size: 32px;
-        margin-bottom: 5px;
-      }
-      + p {
-        font-size: 22px;
+    transform: rotate(45deg);
+    div {
+      transform: rotate(-45deg);
+      p {
+        &:first-child {
+          font-size: 32px;
+          margin-bottom: 5px;
+        }
+        + p {
+          font-size: 22px;
+        }
       }
     }
   }

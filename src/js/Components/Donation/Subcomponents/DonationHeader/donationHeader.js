@@ -22,24 +22,32 @@ function DonationHeader() {
                 </div>
                 <ul className={style.links}>
                     <li>
-                        <p>1</p>
-                        <p>Wybierz</p>
-                        <p>rzeczy</p>
+                        <div>
+                            <p>1</p>
+                            <p>Wybierz</p>
+                            <p>rzeczy</p>
+                        </div>
                     </li>
                     <li>
-                        <p>2</p>
-                        <p>Spakuj je</p>
-                        <p>w worki</p>
+                        <div>
+                            <p>2</p>
+                            <p>Spakuj je</p>
+                            <p>w worki</p>
+                        </div>
                     </li>
                     <li>
-                        <p>3</p>
-                        <p>Wybierz</p>
-                        <p>Fundację</p>
+                        <div>
+                            <p>3</p>
+                            <p>Wybierz</p>
+                            <p>Fundację</p>
+                        </div>
                     </li>
                     <li>
-                        <p>4</p>
-                        <p>Zamów</p>
-                        <p>Kuriera</p>
+                        <div>
+                            <p>4</p>
+                            <p>Zamów</p>
+                            <p>Kuriera</p>
+                        </div>
                     </li>
                 </ul>
             </div>
