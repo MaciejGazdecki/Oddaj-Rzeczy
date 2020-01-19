@@ -6,6 +6,10 @@ import Login from "../Components/Login/login";
 import Register from "../Components/Register/register";
 import Navigation from "../Components/Navigation/navigation";
 import Logout from "../Components/Logout/logout";
+import firebase from "firebase";
+import {config} from "./firebaseConfig";
+
+firebase.initializeApp(config);
 
 function App () {
     return (

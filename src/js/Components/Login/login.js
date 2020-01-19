@@ -1,15 +1,38 @@
-import React from "react";
+import React, {useState,useEffect} from "react";
 import style from "./login.modules.scss";
 import Decoration from "./../../../images/Decoration.png";
 import {Link} from "react-router-dom";
-import {useForm} from "react-hook-form"
+import {useForm} from "react-hook-form";
+import firebase from "firebase";
 
 function Login() {
+    const [email,setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [user, setUser] = useState('');
     const {register, handleSubmit, errors} = useForm();
 
-    const onSubmit = (data) => {
-        alert(`Zalogowano poprawnie ${JSON.stringify(data)}`)
+    const onSubmit = () => {
+        firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
+            // Handle Errors here.
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            console.log(errorCode);
+            console.log(errorMessage);
+        });
     };
+
+    useEffect(() => {
+        firebase.auth().onAuthStateChanged(function(user) {
+            if (user) {
+                // User is signed in.
+                 setUser(user.email);
+            } else {
+                // User is signed out.
+                console.log("Użytkownik wylogowany")
+            }
+        });
+    });
+    console.log(user);
     return (
         <section className={style.loginSection}>
             <div className={style.wrapper}>
@@ -25,6 +48,7 @@ function Login() {
                             <p>Email</p>
                             <input type="text"
                                    name="email"
+                                   onChange={event => setEmail(event.target.value)}
                                    ref={register({required:true, pattern: /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/})}
                             />
                             {errors.email && errors.email.type === 'required' && (
@@ -38,6 +62,7 @@ function Login() {
                             <p className={style.password}>Hasło</p>
                             <input type="password"
                                    name="password"
+                                   onChange={event => setPassword(event.target.value)}
                                    ref={register({required:true, minLength: 6})}
                             />
                             {errors.password && errors.password.type === 'required' && (
