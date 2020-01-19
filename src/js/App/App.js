@@ -9,7 +9,8 @@ import Logout from "../Components/Logout/logout";
 import Donate from "../Components/Donate/donate";
 import firebase from "firebase";
 import {config} from "./firebaseConfig";
-import {UserContext} from "./userContext"
+import {UserContext} from "./userContext";
+import {SetUserContext} from './setUserContext'
 
 firebase.initializeApp(config);
 
@@ -31,14 +32,16 @@ function App () {
     return (
         <Router>
             <UserContext.Provider value={user}>
-                <div className={style.container}>
-                    <Navigation/>
-                    <Route path="/" exact component={Home}/>
-                    <Route path="/logowanie" component={Login}/>
-                    <Route path="/rejestracja" component={Register}/>
-                    <Route path="/wylogowano" component={Logout}/>
-                    <Route path="/oddaj-rzeczy" component={Donate}/>
-                </div>
+                <SetUserContext.Provider value={setUser}>
+                    <div className={style.container}>
+                        <Navigation/>
+                        <Route path="/" exact component={Home}/>
+                        <Route path="/logowanie" component={Login}/>
+                        <Route path="/rejestracja" component={Register}/>
+                        <Route path="/wylogowano" component={Logout}/>
+                        <Route path="/oddaj-rzeczy" component={Donate}/>
+                    </div>
+                </SetUserContext.Provider>
             </UserContext.Provider>
         </Router>
     )

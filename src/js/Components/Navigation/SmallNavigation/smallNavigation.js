@@ -1,12 +1,14 @@
-import React, {useContext} from "react";
+import React, {useContext,useEffect} from "react";
 import {NavLink} from "react-router-dom";
 import style from "./smallNavigation.modules.scss"
 import {UserContext} from "../../../App/userContext";
+import {SetUserContext} from '../../../App/setUserContext';
 import firebase from "firebase";
 import {useForceUpdate} from '../../../../js/CustomHooks/useForceUpdate'
 
 function SmallNavigation() {
     const user = useContext(UserContext);
+    const setUser = useContext(SetUserContext);
     const forceUpdate = useForceUpdate();
 
     const logOut = () => {
@@ -18,6 +20,15 @@ function SmallNavigation() {
             alert(error);
         });
     };
+
+    useEffect(() => {
+        firebase.auth().onAuthStateChanged(user => {
+            if (!user) {
+                // User is signed out.
+                setUser('');
+            }
+        });
+    });
     return (
         <ul className={style.loginNav}>
             <li>
