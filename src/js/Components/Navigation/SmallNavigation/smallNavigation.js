@@ -1,8 +1,8 @@
 import React, {useContext} from "react";
 import {NavLink} from "react-router-dom";
 import style from "./smallNavigation.modules.scss"
-import {UserContext} from "../../../App/userContext";
-import {SetUserContext} from '../../../App/setUserContext';
+import {UserContext} from "../../../App/Context/userContext";
+import {SetUserContext} from '../../../App/Context/setUserContext';
 import firebase from "firebase";
 
 function SmallNavigation() {
@@ -22,6 +22,9 @@ function SmallNavigation() {
 
     return (
         <ul className={style.loginNav}>
+            <li>
+                {user ? user : null}
+            </li>
             <li>
                 {!user ?
                 <NavLink activeClassName={style.active} to="/logowanie">

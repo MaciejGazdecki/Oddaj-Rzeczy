@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useContext} from "react";
 import style from "./aboutIdea.modules.scss";
 import Decoration from "../../../../../images/Decoration.png"
 import {Link} from "react-router-dom";
@@ -6,9 +6,12 @@ import TShirt from "../../../../../images/Icon-1.png";
 import Pack from "../../../../../images/Icon-2.png";
 import Glass from "../../../../../images/Icon-3.png";
 import Spinner from "../../../../../images/Icon-4.png";
-import {Element} from "react-scroll"
+import {Element} from "react-scroll";
+import {UserContext} from "../../../../App/Context/userContext";
 
 function AboutIdea() {
+    const user = useContext(UserContext);
+
     return (
         <Element name="aboutIdea" className="element">
             <section className={style.aboutContainer}>
@@ -44,10 +47,15 @@ function AboutIdea() {
                         </div>
                     </div>
                     <div className={style.button}>
-                        <Link to="/logowanie">
-                            <p>ODDAJ</p>
-                            <p>RZECZY</p>
-                        </Link>
+                        {!user ?
+                            <Link to="/logowanie">
+                                <p>ODDAJ</p>
+                                <p>RZECZY</p>
+                            </Link> :
+                            <Link to="/oddaj-rzeczy">
+                                <p>ODDAJ</p>
+                                <p>RZECZY</p>
+                            </Link> }
                     </div>
                 </div>
             </section>

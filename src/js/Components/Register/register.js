@@ -1,7 +1,7 @@
 import React, {useState, useContext} from "react";
 import style from "./register.modules.scss";
 import Decoration from "./../../../images/Decoration.png";
-import {UserContext} from "../../App/userContext";
+import {UserContext} from "../../App/Context/userContext";
 import {Link} from "react-router-dom";
 import {useForm} from "react-hook-form";
 import firebase from "firebase";

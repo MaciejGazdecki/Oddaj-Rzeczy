@@ -7,12 +7,12 @@
   li {
     display: inline-block;
     font-size: 14px;
+    margin-left: 30px;
     a {
       text-decoration: none;
       color: #737373;
     }
     &:nth-child(2){
-      margin-left: 40px;
       padding: 4px;
     }
   }
@@ -25,4 +25,5 @@
   border: none;
   padding: 5px;
   background-color: white;
+  cursor: pointer;
 }

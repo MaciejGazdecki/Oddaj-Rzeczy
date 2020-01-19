@@ -9,8 +9,8 @@ import Logout from "../Components/Logout/logout";
 import Donate from "../Components/Donate/donate";
 import firebase from "firebase";
 import {config} from "./firebaseConfig";
-import {UserContext} from "./userContext";
-import {SetUserContext} from './setUserContext'
+import {UserContext} from "./Context/userContext";
+import {SetUserContext} from './Context/setUserContext'
 
 firebase.initializeApp(config);
 
