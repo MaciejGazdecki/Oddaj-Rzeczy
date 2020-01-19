@@ -25,7 +25,7 @@ function SmallNavigation() {
     return (
         <ul className={style.loginNav}>
             <li>
-                {user ? user : null}
+                {user ? `Cześć ${user}` : null}
             </li>
             <li>
                 {!user ?
