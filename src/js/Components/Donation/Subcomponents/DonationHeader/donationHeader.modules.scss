@@ -25,6 +25,11 @@
   letter-spacing: -0.76px;
   color: #3C3C3C;
   margin-bottom: 40px;
+  p {
+    &:last-child {
+      margin-top: 5px;
+    }
+  }
 }
 .decoration {
   width: 253px;
