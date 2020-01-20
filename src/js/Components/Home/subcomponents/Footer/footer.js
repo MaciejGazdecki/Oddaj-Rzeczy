@@ -1,4 +1,4 @@
-import React, {useReducer} from "react";
+import React, {useReducer,useContext, useEffect} from "react";
 import style from "./footer.modules.scss";
 import {Element} from "react-scroll";
 import Decoration from "../../../../../images/Decoration.png";
@@ -7,15 +7,21 @@ import Facebook from "../../../../../images/Facebook.png";
 import Instagram from "../../../../../images/Instagram.png";
 import {useForm} from 'react-hook-form';
 import axios from "axios";
+import {SetHomeContext} from "../../../../App/Context/setHomeContext";
+import {HomeActiveContext} from "../../../../App/Context/homeActiveContext";
 
 function Footer() {
     const {register, handleSubmit, errors} = useForm();
+    const homeActive = useContext(HomeActiveContext);
+    const setHome = useContext(SetHomeContext);
 
     const initialState = {
       name:'',
       email:'',
       message:''
     };
+
+    useEffect(() => setHome(true));
 
     const reducer = (state, action) => {
         if (action.type === "CLEAR") {
@@ -45,7 +51,8 @@ function Footer() {
 
     return (
         <Element name="footer" className="element">
-            <section className={style.footer} style={{backgroundImage:`url(${Background})`}}>
+            <section className={style.footer} style={homeActive ? {backgroundImage:`url(${Background})`, top: '4054px'}
+            :{backgroundImage:`url(${Background})`, top: '2025px'} }>
                 <div className={style.background}>
                     <div className={style.wrapper}>
                         <div className={style.internalWrapper}>
