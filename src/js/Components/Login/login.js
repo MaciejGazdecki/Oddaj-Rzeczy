@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import style from "./login.modules.scss";
-import Decoration from "./../../../images/Decoration.png";;
+import Decoration from "./../../../images/Decoration.png";
 import {Link} from "react-router-dom";
 import {useForm} from "react-hook-form";
 import {useHistory} from 'react-router-dom';

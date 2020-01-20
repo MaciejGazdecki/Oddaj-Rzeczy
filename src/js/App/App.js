@@ -6,7 +6,7 @@ import Login from "../Components/Login/login";
 import Register from "../Components/Register/register";
 import Navigation from "../Components/Navigation/navigation";
 import Logout from "../Components/Logout/logout";
-import Donate from "../Components/Donate/donate";
+import Donation from "../Components/Donation/donation";
 import firebase from "firebase";
 import {config} from "./firebaseConfig";
 import {UserContext} from "./Context/userContext";
@@ -36,7 +36,7 @@ function App () {
                             <Route path="/logowanie" component={Login}/>
                             <Route path="/rejestracja" component={Register}/>
                             <Route path="/wylogowano" component={Logout}/>
-                            <Route path="/oddaj-rzeczy" component={Donate}/>
+                            <Route path="/oddaj-rzeczy" component={Donation}/>
                         </Switch>
                     </div>
                 </SetUserContext.Provider>
