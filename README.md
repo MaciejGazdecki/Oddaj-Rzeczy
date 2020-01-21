@@ -16,3 +16,6 @@ I used WebPack to bundle the files, I prepared the template of WebPack few month
 things which you do not need to non-profit foundation. It is of course a template webPage and it is not working.
 You can register and log in to pass to donation form. The donation form is not finish, and it will be coded soon.
 
+Grid: https://xd.adobe.com/spec/f11fc670-7af2-4502-4013-c1f66f8d3332-872e/grid/
+
+www: http://oddaj-rzeczy.cba.pl
