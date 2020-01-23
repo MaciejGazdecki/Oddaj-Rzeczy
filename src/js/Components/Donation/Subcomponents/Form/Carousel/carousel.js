@@ -1,6 +1,6 @@
 import React from 'react';
 
-
+// eslint-disable-next-line react/jsx-key
 export const carousel = [
   <div>
       <p>Ważne!</p>

@@ -34,7 +34,7 @@ function DonationForm() {
     return (
             <section className={style.formSection}>
                 <div className={style.info}>
-                    {carousel.slice(page*perPage - perPage, page*perPage).map(el => el)}
+                    {carousel.slice(page*perPage - perPage, page*perPage).map((el,ix) => <div key={ix}>{el}</div>)}
                 </div>
                 <div style={{backgroundImage: `url(${Bear})`}} className={style.formBackground}>
                     <div>
@@ -43,7 +43,7 @@ function DonationForm() {
                     </div>
                     <FormContext {...methods}>
                         <form id="mainForm" onSubmit={methods.handleSubmit(onSubmit)}>
-                            {formComponents.slice(page*perPage - perPage, page*perPage).map(el => el)}
+                            {formComponents.slice(page*perPage - perPage, page*perPage).map((el,ix) => <div key={ix}>{el}</div>)}
                         </form>
                         <input type="submit" value="submit" form="mainForm"/>
                     </FormContext>
