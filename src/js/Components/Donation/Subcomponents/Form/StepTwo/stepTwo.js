@@ -1,9 +1,9 @@
 import React,{useContext} from 'react';
 import style from './stepTwo.module.scss';
-import {RegisterContext} from "../formContextRegister";
+import {useFormContext} from 'react-hook-form';
 
 function StepTwo() {
-    const register = useContext(RegisterContext);;
+    const {register} = useFormContext();
 
     return (
         <>
@@ -17,7 +17,6 @@ function StepTwo() {
                 <option value="4">4</option>
                 <option value="5">5</option>
             </select>
-            <input type="submit" value="submit" form="mainForm"/>
         </>
     )
 }

@@ -1,9 +1,9 @@
-import React, {useContext} from 'react';
+import React from 'react';
 import style from './steoOne.module.scss';
-import {RegisterContext} from "../formContextRegister";
+import {useFormContext} from 'react-hook-form';
 
 function StepOne() {
-    const register = useContext(RegisterContext);
+    const {register} = useFormContext();
 
     return (
         <>

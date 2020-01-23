@@ -1,14 +1,13 @@
 import React,{useState} from 'react';
 import style from './donationForm.modules.scss';
 import Bear from '../../../../../images/Background-Form.jpg';
-import {useForm} from "react-hook-form";
-import {RegisterContext} from "./formContextRegister";
+import {useForm,FormContext} from "react-hook-form";
 import {carousel} from "./Carousel/carousel";
 import StepOne from "./stepOne/stepOne";
 import StepTwo from "./StepTwo/stepTwo";
 
 function DonationForm() {
-    const {register, handleSubmit } = useForm();
+    const methods = useForm();
     const [page, setPage] = useState(1);
     const perPage = 1;
 
@@ -33,22 +32,25 @@ function DonationForm() {
     };
 
     return (
-        <RegisterContext.Provider value={register}>
             <section className={style.formSection}>
                 <div className={style.info}>
                     {carousel.slice(page*perPage - perPage, page*perPage).map(el => el)}
                 </div>
                 <div style={{backgroundImage: `url(${Bear})`}} className={style.formBackground}>
-                    <div><p>Krok 1/4</p></div>
-
-                    <form id="mainForm" onSubmit={handleSubmit(onSubmit)}>
-                        {formComponents.slice(page*perPage - perPage, page*perPage).map(el => el)}
-                    </form>
+                    <div>
+                        <p>Krok:</p>
+                        <p>{page}/4</p>
+                    </div>
+                    <FormContext {...methods}>
+                        <form id="mainForm" onSubmit={methods.handleSubmit(onSubmit)}>
+                            {formComponents.slice(page*perPage - perPage, page*perPage).map(el => el)}
+                        </form>
+                        <input type="submit" value="submit" form="mainForm"/>
+                    </FormContext>
                     <button onClick={onClickPreviousHandler}>Wstecz</button>
                     <button onClick={onClickNextHandler}>Dalej</button>
                 </div>
             </section>
-        </RegisterContext.Provider>
     )
 }
 
