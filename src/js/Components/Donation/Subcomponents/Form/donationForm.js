@@ -6,6 +6,7 @@ import {StateContext} from "./FormStateContext";
 import {carousel} from "./Carousel/carousel";
 import StepOne from "./stepOne/stepOne";
 import StepTwo from "./StepTwo/stepTwo";
+import StepThree from "./stepThree/stepThree";
 
 function DonationForm() {
     const methods = useForm();
@@ -50,7 +51,7 @@ function DonationForm() {
     const [state, dispatch] = useReducer(reducer,initialState);
 
     // eslint-disable-next-line react/jsx-key
-    const formComponents = [<StepOne/>, <StepTwo/>];
+    const formComponents = [<StepOne/>, <StepTwo/>, <StepThree/>];
 
     const onClickNextHandler = () => {
         if (formComponents.length === page) {
