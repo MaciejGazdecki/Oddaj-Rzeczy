@@ -85,7 +85,7 @@ function DonationForm() {
                             {formComponents.slice(page*perPage - perPage, page*perPage).map((el,ix) => <div key={ix}>{el}</div>)}
                         </form>
                     </FormContext>
-                    {page <=5 ? <button onClick={onClickPreviousHandler}>Wstecz</button> : null}
+                    {page <=5 && page >=2 ? <button onClick={onClickPreviousHandler}>Wstecz</button> : null}
                     {page <=4 ? <button onClick={onClickNextHandler}>Dalej</button>: null}
                 </div>
             </section>
