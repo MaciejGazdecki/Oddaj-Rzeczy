@@ -1,4 +1,4 @@
-import React, {useReducer, useState, useContext} from 'react';
+import React, {useState} from 'react';
 import style from './donationForm.modules.scss';
 import Bear from '../../../../../images/Background-Form.jpg';
 import {useForm,FormContext} from "react-hook-form";
@@ -7,21 +7,20 @@ import {carousel} from "./Carousel/carousel";
 import StepOne from "./stepOne/stepOne";
 import StepTwo from "./StepTwo/stepTwo";
 import StepThree from "./stepThree/stepThree";
+import StepFour from "./stepFour/stepFour";
+import Resume from "./Resume/resume";
 
 function DonationForm() {
-    const methods = useForm();
-    const [page, setPage] = useState(1);
-    const perPage = 1;
-
-    const onSubmit = (data) => {
-        alert(JSON.stringify(data))
-    };
 
     const initialState = {
         things:'ubrania, które nadają się do ponownego użycia',
         quantity:1,
         localization:'',
-        purpose:'',
+        children:false,
+        mothers:false,
+        homeless:false,
+        disabled:false,
+        olderPeople:false,
         organizationName:'',
         street:'',
         city:'',
@@ -31,27 +30,27 @@ function DonationForm() {
         pickUpHour:'',
         remarks:'',
     };
+    const [state,setState] = useState(initialState);
+    const [page, setPage] = useState(1);
+    const methods = useForm();
+    const perPage = 1;
 
-    const reducer = (state, action) => {
-        if (action.type === "CLEAR") {
-            return initialState
-        }
-        if (action.type === "SET_VALUE") {
-            return {
-                ...state,
-                [action.name]: action.value
-            }
-        }
+    const onSubmit = (data) => {
+        alert(JSON.stringify(data))
     };
 
-    const onChangeHandler = (e) => {
-        dispatch({type:"SET_VALUE", name: e.target.name, value: e.target.value});
+    const onChangeHandler = (evt) => {
+        const value =
+            evt.target.type === "checkbox" ? evt.target.checked : evt.target.value;
+        setState({
+            ...state,
+            [evt.target.name]: value
+        });
     };
 
-    const [state, dispatch] = useReducer(reducer,initialState);
 
     // eslint-disable-next-line react/jsx-key
-    const formComponents = [<StepOne/>, <StepTwo/>, <StepThree/>];
+    const formComponents = [<StepOne/>, <StepTwo/>, <StepThree/>, <StepFour/>, <Resume/>];
 
     const onClickNextHandler = () => {
         if (formComponents.length === page) {
@@ -73,17 +72,16 @@ function DonationForm() {
                 </div>
                 <div style={{backgroundImage: `url(${Bear})`}} className={style.formBackground}>
                     <div>
-                        <p>Krok:</p>
-                        <p>{page}/4</p>
+                        <p>{page <= 4 ? 'Krok:': null}</p>
+                        <p>{page <= 4 ? `${page}/4` : null}</p>
                     </div>
                     <FormContext {...methods}>
                         <form id="mainForm" onSubmit={methods.handleSubmit(onSubmit)} onChange={onChangeHandler}>
                             {formComponents.slice(page*perPage - perPage, page*perPage).map((el,ix) => <div key={ix}>{el}</div>)}
                         </form>
-                        <input type="submit" value="submit" form="mainForm"/>
                     </FormContext>
                     <button onClick={onClickPreviousHandler}>Wstecz</button>
-                    <button onClick={onClickNextHandler}>Dalej</button>
+                    {page <=4 ? <button onClick={onClickNextHandler}>Dalej</button>: null}
                 </div>
             </section>
         </StateContext.Provider>
