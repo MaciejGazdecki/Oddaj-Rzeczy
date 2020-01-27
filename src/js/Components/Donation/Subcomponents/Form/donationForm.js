@@ -9,6 +9,8 @@ import StepTwo from "./StepTwo/stepTwo";
 import StepThree from "./stepThree/stepThree";
 import StepFour from "./stepFour/stepFour";
 import Resume from "./Resume/resume";
+import Confirmation from "./Confirmation/confirmation";
+import axios from "axios";
 
 function DonationForm() {
 
@@ -35,8 +37,11 @@ function DonationForm() {
     const methods = useForm();
     const perPage = 1;
 
-    const onSubmit = (data) => {
-        alert(JSON.stringify(data))
+    const onSubmit = async () => {
+        await axios.post('https://oddaj-rzeczy-27d1f.firebaseio.com/records.json', state)
+            .then(res => {console.log(res); alert('wysłano formularz')})
+            .catch(err => console.log(err));
+        setPage(prevState => prevState +1)
     };
 
     const onChangeHandler = (evt) => {
@@ -50,7 +55,7 @@ function DonationForm() {
 
 
     // eslint-disable-next-line react/jsx-key
-    const formComponents = [<StepOne/>, <StepTwo/>, <StepThree/>, <StepFour/>, <Resume/>];
+    const formComponents = [<StepOne/>, <StepTwo/>, <StepThree/>, <StepFour/>, <Resume/>,<Confirmation/>];
 
     const onClickNextHandler = () => {
         if (formComponents.length === page) {
@@ -80,7 +85,7 @@ function DonationForm() {
                             {formComponents.slice(page*perPage - perPage, page*perPage).map((el,ix) => <div key={ix}>{el}</div>)}
                         </form>
                     </FormContext>
-                    <button onClick={onClickPreviousHandler}>Wstecz</button>
+                    {page <=5 ? <button onClick={onClickPreviousHandler}>Wstecz</button> : null}
                     {page <=4 ? <button onClick={onClickNextHandler}>Dalej</button>: null}
                 </div>
             </section>

@@ -15,7 +15,7 @@ function Resume() {
             <div>
                 <p>Oddajesz:</p>
                 <div>
-                    <p>
+                    <div>
                         <img src={Image1} alt="t-shirt"/>
                         {`${state.quantity} worki, ${state.things}, `}
                         <p>
@@ -25,11 +25,11 @@ function Resume() {
                             {state.disabled ? 'niepełnosprawnym, ' : null}
                             {state.olderPeople ? 'starszym ludziom, ' : null}
                         </p>
-                    </p>
-                    <p>
+                    </div>
+                    <div>
                         <img src={Image2} alt=""/>
                         <p>Dla lokalizacji: {state.localization}</p>
-                    </p>
+                    </div>
                 </div>
                 <div>
                     <div>
