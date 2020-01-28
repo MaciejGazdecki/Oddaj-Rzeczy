@@ -76,17 +76,24 @@ function DonationForm() {
                     {carousel.slice(page*perPage - perPage, page*perPage).map((el,ix) => <div key={ix}>{el}</div>)}
                 </div>
                 <div style={{backgroundImage: `url(${Bear})`}} className={style.formBackground}>
-                    <div>
-                        <p>{page <= 4 ? 'Krok:': null}</p>
-                        <p>{page <= 4 ? `${page}/4` : null}</p>
-                    </div>
-                    <FormContext {...methods}>
-                        <form id="mainForm" onSubmit={methods.handleSubmit(onSubmit)} onChange={onChangeHandler}>
-                            {formComponents.slice(page*perPage - perPage, page*perPage).map((el,ix) => <div key={ix}>{el}</div>)}
-                        </form>
-                    </FormContext>
-                    {page <=5 && page >=2 ? <button onClick={onClickPreviousHandler}>Wstecz</button> : null}
-                    {page <=4 ? <button onClick={onClickNextHandler}>Dalej</button>: null}
+                    <div className={style.formWrapper}>
+                        <div className={style.pageCounter}>
+                            <p>{page <= 4 ? `Krok: ${page}/4`: null}</p>
+                        </div>
+                        <FormContext {...methods}>
+                            <form id="mainForm"
+                                  onSubmit={methods.handleSubmit(onSubmit)}
+                                  onChange={onChangeHandler}
+                            >
+                                {formComponents.slice(page*perPage - perPage, page*perPage).map((el,ix) =>
+                                    <div key={ix}>{el}</div>)}
+                            </form>
+                        </FormContext>
+                        <div className={style.buttons}>
+                            {page <=5 && page >=2 ? <button onClick={onClickPreviousHandler}>Wstecz</button> : null}
+                            {page <=4 ? <button onClick={onClickNextHandler}>Dalej</button>: null}
+                        </div>
+                        </div>
                 </div>
             </section>
         </StateContext.Provider>

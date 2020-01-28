@@ -8,8 +8,8 @@ function StepOne() {
     const state = useContext(StateContext);
 
     return (
-        <>
-            <div>Zaznacz co chcesz oddać:</div>
+        <div className={style.stepOne}>
+            <div className={style.header}>Zaznacz co chcesz oddać:</div>
             <div>
                 <input type="radio"
                        value="ubrania, które nadają się do ponownego użycia"
@@ -22,7 +22,7 @@ function StepOne() {
             </div>
             <div>
                 <input type="radio"
-                       id="clothestoThrow"
+                       id="clothesToThrow"
                        name="things"
                        value='ubrania, do wyrzucenia'
                        ref={register}
@@ -60,7 +60,7 @@ function StepOne() {
                 />
                 <label htmlFor="Inne">Inne</label>
             </div>
-        </>
+        </div>
     )
 }
 

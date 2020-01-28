@@ -19,5 +19,9 @@ export const carousel = [
     <div>
         <p>Ważne!</p>
         <p>Podaj adres oraz termin odbioru rzeczy.</p>
+    </div>,
+    <div>
+        <p>Podsumowanie!</p>
+        <p></p>
     </div>
 ];
