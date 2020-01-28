@@ -16,7 +16,7 @@ function DonationForm() {
 
     const initialState = {
         things:'ubrania, które nadają się do ponownego użycia',
-        quantity:1,
+        quantity:'',
         localization:'',
         children:false,
         mothers:false,
