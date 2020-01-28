@@ -38,7 +38,6 @@ function Footer() {
     const [state, dispatch] = useReducer(reducer,initialState);
 
     const onSubmit = async () => {
-        event.preventDefault();
         await axios.post("https://fer-api.coderslab.pl/v1/portfolio/contact", state)
             .then(res => {console.log(res); alert("wysłano wiadomość")})
             .catch(err => console.log(err));
