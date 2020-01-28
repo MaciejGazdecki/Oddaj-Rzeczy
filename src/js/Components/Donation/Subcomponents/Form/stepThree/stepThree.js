@@ -24,18 +24,41 @@ function StepThree() {
                 <p>Komu chcesz pomóc?</p>
                 <div>
                     <input type="checkbox"
-                           name="purpose"
-                           value="dzieciom"
+                           name="children"
                            ref={register}
+                           checked={state.children}
                     />dzieciom
                     <input type="checkbox"
-                           name="purpose"
-                           value="samotnym matkom"
+                           name="mothers"
                            ref={register}
+                           checked={state.mothers}
                     />samotnym matkom
-                    <input type="text"/>
-                    <input type="text"/>
-                    <input type="text"/>
+                    <input type="checkbox"
+                           name="homeless"
+                           ref={register}
+                           checked={state.homeless}
+                    />bezdomnym
+                    <input type="checkbox"
+                            name="disabled"
+                           ref={register}
+                           checked={state.disabled}
+                    />niepelnosprawnym
+                    <input type="checkbox"
+                            name="olderPeople"
+                           ref={register}
+                           checked={state.olderPeople}
+                    />
+                    osobom starszym
+                </div>
+                <div>
+                    <label htmlFor="">
+                        Wpisz nazwę konkretnej organizacji (opcjonalnie)
+                        <input type="text"
+                                name="organizationName"
+                               ref={register}
+                               value={state.organizationName}
+                        />
+                    </label>
                 </div>
             </div>
         </>

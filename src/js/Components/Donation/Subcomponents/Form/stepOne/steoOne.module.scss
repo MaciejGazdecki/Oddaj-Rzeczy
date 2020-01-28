@@ -1,0 +1,40 @@
+.stepOne {
+  .header {
+    font-size: 36px;
+    margin-bottom: 20px;
+  }
+  div {
+    input[type='radio'] {
+      display: none;
+    }
+    label {
+      font-size: 24px;
+      position: relative;
+    }
+    + div {
+      margin-top: 20px;
+    }
+  }
+  label:before {
+    content: " ";
+    display: inline-block;
+    position: relative;
+    top: 5px;
+    margin: 0 20px 0 0;
+    width: 30px;
+    height: 30px;;
+    border: 1px solid black;
+    background-color: transparent;
+    cursor: pointer;
+  }
+  input[type='radio']:checked + label:before {
+    width: 30px;
+    height: 30px;
+    position: relative;
+    top: 5px;
+    display: inline-block;
+    background-color: #FAD648;
+    content: " ";
+  }
+}
+

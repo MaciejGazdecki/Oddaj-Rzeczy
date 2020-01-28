@@ -1,4 +1,4 @@
-import React, {useReducer, useState, useContext} from 'react';
+import React, {useState} from 'react';
 import style from './donationForm.modules.scss';
 import Bear from '../../../../../images/Background-Form.jpg';
 import {useForm,FormContext} from "react-hook-form";
@@ -7,21 +7,22 @@ import {carousel} from "./Carousel/carousel";
 import StepOne from "./stepOne/stepOne";
 import StepTwo from "./StepTwo/stepTwo";
 import StepThree from "./stepThree/stepThree";
+import StepFour from "./stepFour/stepFour";
+import Resume from "./Resume/resume";
+import Confirmation from "./Confirmation/confirmation";
+import axios from "axios";
 
 function DonationForm() {
-    const methods = useForm();
-    const [page, setPage] = useState(1);
-    const perPage = 1;
-
-    const onSubmit = (data) => {
-        alert(JSON.stringify(data))
-    };
 
     const initialState = {
         things:'ubrania, które nadają się do ponownego użycia',
-        quantity:1,
+        quantity:'',
         localization:'',
-        purpose:'',
+        children:false,
+        mothers:false,
+        homeless:false,
+        disabled:false,
+        olderPeople:false,
         organizationName:'',
         street:'',
         city:'',
@@ -31,27 +32,30 @@ function DonationForm() {
         pickUpHour:'',
         remarks:'',
     };
+    const [state,setState] = useState(initialState);
+    const [page, setPage] = useState(1);
+    const methods = useForm();
+    const perPage = 1;
 
-    const reducer = (state, action) => {
-        if (action.type === "CLEAR") {
-            return initialState
-        }
-        if (action.type === "SET_VALUE") {
-            return {
-                ...state,
-                [action.name]: action.value
-            }
-        }
+    const onSubmit = async () => {
+        await axios.post('https://oddaj-rzeczy-27d1f.firebaseio.com/records.json', state)
+            .then(res => {console.log(res); alert('wysłano formularz')})
+            .catch(err => console.log(err));
+        setPage(prevState => prevState +1)
     };
 
-    const onChangeHandler = (e) => {
-        dispatch({type:"SET_VALUE", name: e.target.name, value: e.target.value});
+    const onChangeHandler = (evt) => {
+        const value =
+            evt.target.type === "checkbox" ? evt.target.checked : evt.target.value;
+        setState({
+            ...state,
+            [evt.target.name]: value
+        });
     };
 
-    const [state, dispatch] = useReducer(reducer,initialState);
 
     // eslint-disable-next-line react/jsx-key
-    const formComponents = [<StepOne/>, <StepTwo/>, <StepThree/>];
+    const formComponents = [<StepOne/>, <StepTwo/>, <StepThree/>, <StepFour/>, <Resume/>,<Confirmation/>];
 
     const onClickNextHandler = () => {
         if (formComponents.length === page) {
@@ -72,18 +76,24 @@ function DonationForm() {
                     {carousel.slice(page*perPage - perPage, page*perPage).map((el,ix) => <div key={ix}>{el}</div>)}
                 </div>
                 <div style={{backgroundImage: `url(${Bear})`}} className={style.formBackground}>
-                    <div>
-                        <p>Krok:</p>
-                        <p>{page}/4</p>
-                    </div>
-                    <FormContext {...methods}>
-                        <form id="mainForm" onSubmit={methods.handleSubmit(onSubmit)} onChange={onChangeHandler}>
-                            {formComponents.slice(page*perPage - perPage, page*perPage).map((el,ix) => <div key={ix}>{el}</div>)}
-                        </form>
-                        <input type="submit" value="submit" form="mainForm"/>
-                    </FormContext>
-                    <button onClick={onClickPreviousHandler}>Wstecz</button>
-                    <button onClick={onClickNextHandler}>Dalej</button>
+                    <div className={style.formWrapper}>
+                        <div className={style.pageCounter}>
+                            <p>{page <= 4 ? `Krok: ${page}/4`: null}</p>
+                        </div>
+                        <FormContext {...methods}>
+                            <form id="mainForm"
+                                  onSubmit={methods.handleSubmit(onSubmit)}
+                                  onChange={onChangeHandler}
+                            >
+                                {formComponents.slice(page*perPage - perPage, page*perPage).map((el,ix) =>
+                                    <div key={ix}>{el}</div>)}
+                            </form>
+                        </FormContext>
+                        <div className={style.buttons}>
+                            {page <=5 && page >=2 ? <button onClick={onClickPreviousHandler}>Wstecz</button> : null}
+                            {page <=4 ? <button onClick={onClickNextHandler}>Dalej</button>: null}
+                        </div>
+                        </div>
                 </div>
             </section>
         </StateContext.Provider>

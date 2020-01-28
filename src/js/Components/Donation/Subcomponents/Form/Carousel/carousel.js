@@ -15,5 +15,13 @@ export const carousel = [
         <p>Jeśli wiesz komu chcesz pomóc, możesz wpisać nazwę tej organizacji w wyszukiwarce.
             Możesz też filtrować organizacje po ich lokalizacji bądź celu ich pomocy.
         </p>
+    </div>,
+    <div>
+        <p>Ważne!</p>
+        <p>Podaj adres oraz termin odbioru rzeczy.</p>
+    </div>,
+    <div>
+        <p>Podsumowanie!</p>
+        <p></p>
     </div>
 ];

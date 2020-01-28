@@ -8,9 +8,47 @@
     width: 100%;
     height: 179px;
     background-color: #FAD648;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    div {
+      margin-left: 40px;
+      p {
+        &:first-child {
+          font-size: 36px;
+          margin-bottom: 10px;
+        }
+        &:last-child {
+          font-size: 22px;
+        }
+      }
+    }
   }
 }
 .formBackground {
   width: 100%;
   height: 883px;
+  .formWrapper {
+    margin-left: 80px;
+    .pageCounter {
+      padding-top: 40px;
+      margin-bottom: 70px;
+      p {
+        font-size: 24px;
+      }
+    }
+  }
+}
+.buttons {
+  margin-top: 100px;
+  button {
+    font-size: 24px;
+    background-color: #EFEDE9;
+    border: 1px solid black;
+    padding: 33px 54px;
+    cursor: pointer;
+    &:first-child {
+      margin-right: 40px;
+    }
+  }
 }
