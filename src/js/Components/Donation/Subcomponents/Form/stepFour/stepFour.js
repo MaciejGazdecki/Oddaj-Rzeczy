@@ -10,66 +10,73 @@ function StepFour() {
 
     return (
         <>
-            <div>
+            <div className={style.header}>
                 <p>Podaj adres oraz termin odbioru rzecz przez kuriera</p>
             </div>
-            <div>
-                <div>
-                    <p>Adres odbioru:</p>
-                    <label>Ulica:
+            <div className={style.formWrapper}>
+                <div className={style.formSectionOne}>
+                    <p className={style.smallHeaders}>Adres odbioru:</p>
+                    <div>
+                        <label>Ulica</label>
                         <input type="text"
                                name="street"
                                value={state.street}
                                ref={register}
                         />
-                    </label>
-                    <label>Miasto:
+                    </div>
+                    <div>
+                        <label>Miasto</label>
                         <input type="text"
                                name="city"
                                value={state.city}
                                ref={register}
                         />
-                    </label>
-                    <label>Kod pocztowy:
+                    </div>
+                    <div>
+                        <label>Kod<br/>pocztowy</label>
                         <input type="text"
                                name="zipCode"
                                value={state.zipCode}
                                ref={register}
                         />
-                    </label>
-                    <label>Numer telefonu:
+                    </div>
+                    <div>
+                        <label>Numer<br/>telefonu</label>
                         <input type="tel"
                                name="phoneNumber"
                                value={state.phoneNumber}
                                ref={register}
                         />
-                    </label>
+                    </div>
                 </div>
-                <div>
-                    <p>Termin odbioru:</p>
-                    <label>Data: 
+                <div className={style.formSectionTwo}>
+                    <p className={style.smallHeaders}>Termin odbioru:</p>
+                    <div>
+                        <label>Data</label>
                         <input type="date"
                                name="pickUpDate"
                                value={state.pickUpDate}
                                ref={register}
                         />
-                    </label>
-                    <label>Godzina:
+                    </div>
+                    <div>
+                        <label>Godzina</label>
                         <input type="time"
                                name="pickUpHour"
                                value={state.pickUpHour}
                                ref={register}
                         />
-                    </label>
-                    <label>Uwagi dla kuriera:
+                    </div>
+                    <div className={style.textarea}>
+                        <label>Uwagi dla kuriera</label>
                         <textarea name="remarks"
                                   cols="30"
-                                  rows="10"
+                                  rows="7"
                                   value={state.remarks}
                                   ref={register}
                         >
                         </textarea>
-                    </label>
+                    </div>
                 </div>
             </div>
         </>
