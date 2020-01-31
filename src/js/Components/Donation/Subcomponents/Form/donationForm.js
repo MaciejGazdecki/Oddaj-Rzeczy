@@ -39,8 +39,8 @@ function DonationForm() {
 
     const onSubmit = async () => {
         await axios.post('https://oddaj-rzeczy-27d1f.firebaseio.com/records.json', state)
-            .then(res => {console.log(res); alert('wysłano formularz')})
-            .catch(err => console.log(err));
+            .then(res => {alert('wysłano formularz')})
+            .catch(err => {alert("wystąpił błąd"); alert(err)});
         setPage(prevState => prevState +1)
     };
 
