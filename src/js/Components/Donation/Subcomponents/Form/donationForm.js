@@ -72,9 +72,10 @@ function DonationForm() {
     return (
         <StateContext.Provider value={state}>
             <section className={style.formSection}>
+                {page > 5 ? null :
                 <div className={style.info}>
                     {carousel.slice(page*perPage - perPage, page*perPage).map((el,ix) => <div key={ix}>{el}</div>)}
-                </div>
+                </div>}
                 <div style={{backgroundImage: `url(${Bear})`}} className={style.formBackground}>
                     <div className={style.formWrapper}>
                         <div className={style.pageCounter}>
@@ -89,10 +90,12 @@ function DonationForm() {
                                     <div key={ix}>{el}</div>)}
                             </form>
                         </FormContext>
-                        <div className={style.buttons}>
-                            {page <=5 && page >=2 ? <button onClick={onClickPreviousHandler}>Wstecz</button> : null}
-                            {page <=4 ? <button onClick={onClickNextHandler}>Dalej</button>: null}
-                        </div>
+                        {page <= 5 ?
+                        <div className={style.buttons} style={page <=4 ? {top: "815px"} : {top:"920px"}}>
+                            {page >=2 && page <=5 ? <button onClick={onClickPreviousHandler}>Wstecz</button> : null}
+                            {page <=4 ? <button onClick={onClickNextHandler}>Dalej</button>:
+                                <input type="submit" value="Potwierdzam" form="mainForm"/>}
+                        </div> :null}
                         </div>
                 </div>
             </section>

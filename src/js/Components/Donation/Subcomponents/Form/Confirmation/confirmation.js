@@ -4,14 +4,14 @@ import Decoration from './../../../../../../images/Decoration.png'
 
 function Confirmation() {
     return (
-        <div>
-            <div>
+        <>
+            <div className={style.confirmation}>
                 <p>Dziękujemy za przesłanie formularza</p>
                 <p>Na maila prześlemy wszelkie</p>
                 <p>informacje o odbiorze</p>
                 <img src={Decoration} alt=""/>
             </div>
-        </div>
+        </>
     )
 }
 

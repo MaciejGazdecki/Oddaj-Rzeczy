@@ -22,6 +22,6 @@ export const carousel = [
     </div>,
     <div>
         <p>Podsumowanie!</p>
-        <p></p>
+        <p>Sprawdż dokładnie wszystkie dane</p>
     </div>
 ];

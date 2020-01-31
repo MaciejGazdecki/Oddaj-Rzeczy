@@ -33,6 +33,7 @@
     .pageCounter {
       padding-top: 40px;
       margin-bottom: 70px;
+      font-weight: 300;
       p {
         font-size: 24px;
       }
@@ -40,8 +41,9 @@
   }
 }
 .buttons {
-  margin-top: 100px;
-  button {
+  position: absolute;
+  top: 920px;
+  button, input{
     font-size: 24px;
     background-color: #EFEDE9;
     border: 1px solid black;
