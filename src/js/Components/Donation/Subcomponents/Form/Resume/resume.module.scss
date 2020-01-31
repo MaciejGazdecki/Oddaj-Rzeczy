@@ -1,0 +1,55 @@
+.title {
+  font-size: 36px;
+  font-weight: 600;
+  margin-bottom: 30px;
+}
+.header {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 30px;
+}
+.items {
+  display: flex;
+  align-items: center;
+  width: 540px;
+  p {
+    font-size: 24px;
+    margin-left: 30px;
+  }
+}
+.localization {
+  display: flex;
+  width: 540px;
+  align-items: center;
+  p {
+    font-size: 24px;
+    margin-left: 30px;
+  }
+}
+.formDetails {
+  display: flex;
+  width: 950px;
+  justify-content: space-between;
+  margin-top: 40px;
+  .sectionTitles {
+    font-size: 24px;
+    font-weight: 400;
+  }
+}
+.sectionOne, .sectionTwo {
+  width: 50%;
+  div {
+    display: flex;
+    font-weight: 300;
+    font-size: 24px;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    p {
+      width: 50%;
+    }
+    +div {
+      margin-top: 20px;
+    }
+  }
+}
