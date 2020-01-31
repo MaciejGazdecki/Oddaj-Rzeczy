@@ -14,7 +14,8 @@ I used the following stack
     
 I used WebPack to bundle the files, I prepared the template of WebPack few months ago. On this webPage you can donate,
 things which you do not need to non-profit foundation. It is of course a template webPage and it is not working.
-You can register and log in to pass to donation form. The donation form is not finish, and it will be coded soon.
+You can register and log in to pass to donation form. Of course is a fake page, it is only layout, anyway records from
+forms are stored in real database in json format (firebase). I will probably continue with this project.
 
 Grid: https://xd.adobe.com/spec/f11fc670-7af2-4502-4013-c1f66f8d3332-872e/grid/
 
